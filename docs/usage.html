@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Usage - session-restore for Herdr</title>
+<meta name="description" content="The History window, the timeline, restoring, and what comes back after a reboot.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+<a class="brand" href="index.html">session-restore <span aria-hidden="true">&middot;</span> a Herdr mod</a>
+<nav class="site" aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="install.html">Install</a></li><li><a href="usage.html" aria-current="page">Usage</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></nav>
+</header>
+<main id="main">
+
+<h1>Usage</h1>
+
+<h2 id="open">Open the History</h2>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> opens it as a popup in any layout, and again closes it. In a layout with the History panel, it is also there.</p>
+
+<h2 id="window">The window</h2>
+<ul>
+<li><strong>Header:</strong> the save's date and time, how long ago, its counts (tabs, each agent, programs) and how it differs from now: <code>+2 tabs  +1 space  1 to restart</code>.</li>
+<li><strong>Restore</strong>, <strong>Pin</strong> and <strong>Events</strong> sit right under it. Events lists what changed since the save before.</li>
+<li><strong>Search:</strong> type part of a conversation's name, a tab, a space or a folder; it jumps to the newest save that has it.</li>
+<li><strong>Timeline:</strong> the activity strip shows how busy each moment was; a red <code>▲</code> marks a restart of Herdr's terminal service (a reboot, a crash, a logout). The slider snaps to saves: the last hours get most of its width. <kbd>←</kbd> <kbd>→</kbd> step one save, <kbd>Shift</kbd> with them a day. "Before restart" buttons jump to the last save before each restart.</li>
+<li><strong>Tree:</strong> a card per space with its tabs and panes. A mark shows where a pane differs from now: <code>↻</code> can restart in place, <code>~</code> runs something else now, <code>+</code> was closed since. Click a pane for its folder, branch and, for an agent, its conversation.</li>
+</ul>
+
+<h2 id="restore">Restore</h2>
+<p>Every pane that can restart and every closed tab has a tick box; untick what you don't want. Restore types a restart line into panes that are now a bare shell, and rebuilds closed tabs (and spaces) with their panes. It never closes or replaces what runs now.</p>
+
+<h2 id="reboot">After a reboot or crash</h2>
+<p>When Herdr's terminal service has started again since the last save, session-restore takes the last save from before that start and restarts what ran in each pane that is now a bare shell: agents by their conversation id, and programs on the allowlist. Closed tabs are not rebuilt on their own; that is what the History is for. One notification says what came back, and lists any command it left alone.</p>
+
+</main>
+<footer class="site">
+<p>Apache-2.0. <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore">Source on GitHub</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/AGENTS.md">Notes for AI agents</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/CHANGELOG.md">Changes</a></p>
+<p>This site is plain HTML and CSS, with one small script of its own for the Copy buttons. It loads nothing from other sites.</p>
+</footer>
+<script src="assets/copy.js"></script>
+</body>
+</html>

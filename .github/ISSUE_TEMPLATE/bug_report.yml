@@ -1,0 +1,54 @@
+name: Bug report
+description: Nothing is saved, something is not restored, or the History misbehaves
+title: "[bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please do not paste save files, terminal text, real space or conversation names,
+        file paths from your machine or anything private. Describe or invent an example instead.
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: For example macOS 15, Ubuntu 24.04, Windows 11
+    validations:
+      required: true
+  - type: input
+    id: herdr
+    attributes:
+      label: Herdr version
+      description: The output of `herdr-app --version`
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install it
+      options:
+        - The one-line installer
+        - Asked Herdr to add it from herdr.dev
+        - Copied mods/session-restore by hand
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Which layout (with the saver entry?), which agents or programs ran, and what you did (reboot, Restore, ...)
+  - type: textarea
+    id: checks
+    attributes:
+      label: Output of the checks
+      description: |
+        The output of `herdr-app check <your mods/session-restore folder>` and of
+        `node scripts/verify-install.mjs <that folder>` (from a clone of this repository). Remove any path that
+        names you.
+      render: text

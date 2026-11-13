@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="705" viewBox="0 0 1100 705" font-family="Geist, Inter, 'Segoe UI', 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif">
+<title>Illustration of the session-restore History window with sample data</title>
+<!-- Illustration with invented data, drawn from the mod's real layout (see RECIPE.md). Not a screenshot. -->
+<defs><filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.55"/></filter></defs>
+<rect width="1100" height="705" fill="#14161a"/><rect width="1100" height="34" fill="#191c21"/>
+<circle cx="20" cy="17" r="5" fill="#3a404c"/>
+<circle cx="38" cy="17" r="5" fill="#3a404c"/>
+<circle cx="56" cy="17" r="5" fill="#3a404c"/>
+<rect x="40" y="70" width="370" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="92" width="284" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="114" width="198" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="136" width="412" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="158" width="326" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="180" width="240" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="202" width="454" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="224" width="368" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="246" width="282" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="268" width="196" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="290" width="410" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="312" width="324" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="334" width="238" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="356" width="452" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="378" width="366" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="400" width="280" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="422" width="194" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="444" width="408" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="466" width="322" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="488" width="236" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="510" width="450" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="532" width="364" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="554" width="278" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="576" width="192" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="598" width="406" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="620" width="320" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="642" width="234" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="664" width="448" height="8" rx="4" fill="#1d2127"/>
+<rect x="40" y="686" width="362" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="70" width="230" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="92" width="206" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="114" width="182" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="136" width="158" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="158" width="134" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="180" width="110" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="202" width="256" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="224" width="232" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="246" width="208" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="268" width="184" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="290" width="160" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="312" width="136" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="334" width="112" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="356" width="258" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="378" width="234" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="400" width="210" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="422" width="186" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="444" width="162" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="466" width="138" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="488" width="114" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="510" width="90" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="532" width="236" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="554" width="212" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="576" width="188" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="598" width="164" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="620" width="140" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="642" width="116" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="664" width="92" height="8" rx="4" fill="#1d2127"/>
+<rect x="800" y="686" width="238" height="8" rx="4" fill="#1d2127"/>
+<g filter="url(#sh)"><rect x="330" y="52" width="440" height="640" rx="10" fill="#101317" stroke="#2a2f37"/></g>
+<g transform="translate(346,66)" fill="none" stroke="#9aa1ad" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 1.4"/></g>
+<text x="368" y="78" font-size="13" font-weight="600" fill="#e6e8eb" text-anchor="start">History</text>
+<text x="754" y="78" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">312 saves</text>
+<text x="346" y="108" font-size="16" font-weight="600" fill="#e6e8eb" text-anchor="start">Thu 12 Nov · 19:37</text>
+<text x="514" y="108" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start">yesterday</text>
+<text x="346" y="128" font-size="12" font-weight="400" fill="#9aa1ad" text-anchor="start">12 tabs · 5 Claude Code · 2 Codex · 2 nvim</text>
+<text x="346" y="147" font-size="12" font-weight="400" fill="#7fb4ca" text-anchor="start">+2 tabs  +1 space  1 to restart</text>
+<rect x="346" y="160" width="85" height="28" rx="7" fill="#c5c9c5" stroke="none"/>
+<text x="357" y="179" font-size="12" font-weight="400" fill="#101317" text-anchor="start">Restore 4</text>
+<rect x="439" y="160" width="43" height="28" rx="7" fill="none" stroke="#2a2f37"/>
+<text x="450" y="179" font-size="12" font-weight="400" fill="#9aa1ad" text-anchor="start">Pin</text>
+<rect x="490" y="160" width="64" height="28" rx="7" fill="none" stroke="#2a2f37"/>
+<text x="501" y="179" font-size="12" font-weight="400" fill="#9aa1ad" text-anchor="start">Events</text>
+<text x="754" y="179" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">← → · ⇧ day</text>
+<rect x="346" y="198" width="408" height="30" rx="8" fill="none" stroke="#2a2f37"/>
+<text x="358" y="218" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start">Find a conversation, tab or folder</text>
+<text x="346" y="252" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start">▁▂▃▅▇▆▅▃▂▁▂▃▅▆▇▆▅▃▂▃▅▇▆▅▃▂▃▅▆▇█▇▆▅▃</text>
+<text x="560" y="264" font-size="9" font-weight="400" fill="#e46876" text-anchor="start">▲</text>
+<text x="640" y="264" font-size="9" font-weight="400" fill="#e46876" text-anchor="start">▲</text>
+<rect x="346" y="274" width="408" height="4" rx="2" fill="#2a2f37"/><rect x="346" y="274" width="320" height="4" rx="2" fill="#7fb4ca"/><circle cx="666" cy="276" r="7" fill="#7fb4ca"/>
+<text x="346" y="298" font-size="10" font-weight="400" fill="#6b7280" text-anchor="start">30d</text>
+<text x="416" y="298" font-size="10" font-weight="400" fill="#6b7280" text-anchor="start">7d</text>
+<text x="476" y="298" font-size="10" font-weight="400" fill="#6b7280" text-anchor="start">48h</text>
+<text x="586" y="298" font-size="10" font-weight="400" fill="#6b7280" text-anchor="start">6h</text>
+<text x="730" y="298" font-size="10" font-weight="400" fill="#6b7280" text-anchor="start">now</text>
+<rect x="346" y="308" width="170" height="20" rx="6" fill="none" stroke="#2a2f37"/>
+<text x="354" y="322" font-size="11" font-weight="400" fill="#9aa1ad" text-anchor="start">▲ before restart 12 Nov · 20:05</text>
+<line x1="330" y1="338" x2="770" y2="338" stroke="#2a2f37"/>
+<rect x="340" y="348" width="420" height="162" rx="8" fill="#15181d" stroke="#3a4350"/>
+<path d="M348 348h404a8 8 0 0 1 8 8v26h-420v-26a8 8 0 0 1 8-8z" fill="#1b1f25"/>
+<rect x="350" y="356" width="18" height="18" rx="5" fill="#22a99a"/>
+<text x="359" y="369" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">W</text>
+<text x="376" y="370" font-size="13" font-weight="600" fill="#e6e8eb" text-anchor="start">web-app</text>
+<rect x="694.8" y="357" width="49.2" height="17" rx="4" fill="#242a31"/>
+<text x="700.8" y="369" font-size="10.5" font-weight="400" fill="#9aa1ad" text-anchor="start">1 nvim</text>
+<rect x="596.1999999999999" y="357" width="92.60000000000001" height="17" rx="4" fill="#242a31"/>
+<text x="602.1999999999999" y="369" font-size="10.5" font-weight="400" fill="#9aa1ad" text-anchor="start">2 Claude Code</text>
+<text x="354" y="400" font-size="11" font-weight="600" fill="#6b7280" text-anchor="start">shell</text>
+<line x1="360" y1="404" x2="360" y2="454" stroke="#2a2f37"/>
+<rect x="370" y="413" width="13" height="13" rx="3" fill="#d97757"/>
+<text x="392" y="424" font-size="12.5" font-weight="400" fill="#e6e8eb" text-anchor="start">checkout refactor</text>
+<text x="740" y="424" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">web-app/src</text>
+<rect x="370" y="439" width="13" height="13" rx="3" fill="#d97757"/>
+<text x="392" y="450" font-size="12.5" font-weight="400" fill="#e6e8eb" text-anchor="start">flaky e2e tests</text>
+<text x="740" y="450" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">web-app</text>
+<text x="354" y="472" font-size="11" font-weight="600" fill="#6b7280" text-anchor="start">editor</text>
+<line x1="360" y1="476" x2="360" y2="500" stroke="#2a2f37"/>
+<rect x="370" y="486" width="12" height="12" rx="3" fill="#7fb4ca"/>
+<rect x="390" y="485" width="13" height="13" rx="3" fill="#57a143"/>
+<text x="412" y="496" font-size="12.5" font-weight="400" fill="#e6e8eb" text-anchor="start">nvim src/cart.ts</text>
+<text x="716" y="496" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">web-app/src</text>
+<rect x="724" y="484" width="18" height="16" rx="4" fill="#242a31"/>
+<text x="733" y="496" font-size="11" font-weight="600" fill="#7fb4ca" text-anchor="middle">↻</text>
+<rect x="340" y="520" width="420" height="116" rx="8" fill="#15181d" stroke="#2a2f37"/>
+<path d="M348 520h404a8 8 0 0 1 8 8v26h-420v-26a8 8 0 0 1 8-8z" fill="#1b1f25"/>
+<rect x="350" y="528" width="18" height="18" rx="5" fill="#e3814f"/>
+<text x="359" y="541" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">I</text>
+<text x="376" y="542" font-size="13" font-weight="600" fill="#e6e8eb" text-anchor="start">infra</text>
+<rect x="688.6" y="529" width="55.4" height="17" rx="4" fill="#242a31"/>
+<text x="694.6" y="541" font-size="10.5" font-weight="400" fill="#9aa1ad" text-anchor="start">1 Codex</text>
+<text x="354" y="572" font-size="11" font-weight="600" fill="#6b7280" text-anchor="start">shell</text>
+<line x1="360" y1="576" x2="360" y2="626" stroke="#2a2f37"/>
+<rect x="370" y="585" width="13" height="13" rx="3" fill="#9a9a9a"/>
+<text x="392" y="596" font-size="12.5" font-weight="400" fill="#e6e8eb" text-anchor="start">terraform plan review</text>
+<text x="740" y="596" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">infra/envs</text>
+<rect x="370" y="611" width="13" height="13" rx="3" fill="#3a404c"/>
+<text x="392" y="622" font-size="12.5" font-weight="400" fill="#9aa1ad" text-anchor="start">zsh</text>
+<text x="740" y="622" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">infra</text>
+<text x="550" y="682" font-size="10" font-weight="400" fill="#3a404c" text-anchor="middle">Illustration with invented data</text>
+</svg>

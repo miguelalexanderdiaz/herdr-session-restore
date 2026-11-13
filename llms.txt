@@ -1,0 +1,8 @@
+# session-restore
+
+> A Herdr mod that saves what every pane runs, restores it after a reboot or crash (agent conversations by id, a short program allowlist), and offers a History timeline to go back to an earlier save.
+
+- [README](https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/README.md): what it does, install, agents, privacy, limits.
+- [RECIPE.md](https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/RECIPE.md): the brief to build it from scratch.
+- [AGENTS.md](https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/AGENTS.md): notes for coding agents installing or editing it.
+- [Documentation](https://miguelalexanderdiaz.github.io/herdr-session-restore/): install, usage, configuration, troubleshooting.

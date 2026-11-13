@@ -1,0 +1,16 @@
+# What install/install.sh and install/install.ps1 install from this repository, one instruction per
+# line: the word, then its values (a mod name has no spaces). The words this repository uses:
+#   mods  mod folders copied from mods/ (an older copy is backed up, then replaced)
+#   keys  the keys.json merged into yours (asks before replacing a key you use)
+#   say   what the person reads before anything is written
+name     session-restore
+mods     session-restore
+keys     keys.json
+say      Network: none.
+say      Runs programs: hc get (what each pane runs), hc server status (to tell a restart), hc send (types a
+say        restart line into a pane that is a bare shell), and herdr-app do, only to recreate tabs you restore.
+say      Reads: Claude Code's ~/.claude/sessions/<pid>.json; ~/.claude/history.jsonl when you open a pane's details.
+say      Writes: its saves, in <Herdr home>/session-restore/.
+say      Keys: ctrl-shift-o opens the History.
+say      After installing: add the background saver to each layout you use (see the README, "Install" step 2),
+say        or nothing is saved.

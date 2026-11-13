@@ -1,0 +1,29 @@
+# Written by Herdr into every mod folder; never commit
+gpui-kit.d.ts
+jsconfig.json
+
+# Dependencies and tooling
+node_modules/
+.idea/
+.vscode/
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local files, backups and secrets
+*.log
+.env
+.env.*
+*.reset-*
+*.bak
+*.bak.*
+/.wt/
+
+# Screenshots taken with `herdr-app shot` (default name) and local assistant state; review before adding one
+herdr-shot*.png
+.claude/
+
+# Round plans, audits and logs of the improvement agents: kept locally, not published.
+/plans/

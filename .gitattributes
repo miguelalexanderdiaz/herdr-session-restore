@@ -1,0 +1,3 @@
+# Same bytes on every OS: the checks read LF, never CRLF.
+* text=auto eol=lf
+*.png binary

@@ -1,0 +1,263 @@
+/* Agents waiting: documentation site. Plain CSS, no fonts or scripts loaded from elsewhere
+   (the one script, assets/copy.js, only shows the Copy buttons).
+   Dark only (Kanagawa Dragon palette). The fonts are self-hosted in assets/fonts/ under the
+   SIL Open Font License 1.1; see the license files there and NOTICE. */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces-latin-full-normal.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("assets/fonts/source-serif-4-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("assets/fonts/source-serif-4-latin-wght-italic.woff2") format("woff2");
+  font-weight: 200 900; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 800; font-style: normal; font-display: swap;
+}
+
+:root {
+  --d-ink-0: #0d0c0c;
+  --d-ink-3: #181616;  /* page */
+  --d-ink-4: #282727;  /* raised */
+  --d-ink-5: #393836;  /* rule, never text */
+  --d-ink-6: #625e5a;  /* tertiary divider, never text */
+  --d-paper: #c5c9c5;
+  --d-old-white: #c8c093;
+  --d-gray-2: #9e9b93;
+  --d-ash: #9aa09a;
+  --d-orange: #b6927b;
+  --d-red: #d08a85;
+  --d-yellow: #c4b28a;
+  --d-aqua: #8ea4a2;
+  --d-blue: #8ba4b0;
+
+  --fg: var(--d-paper);
+  --fg-dim: var(--d-gray-2);
+  --fg-faint: var(--d-ash);
+  --bg: var(--d-ink-3);
+  --bg-raised: var(--d-ink-4);
+  --rule: var(--d-ink-5);
+
+  --f-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --f-display: "Fraunces", "Source Serif 4", Georgia, serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-h1: clamp(28px, 3.2vw, 44px);
+  --fs-h2: clamp(22px, 2.2vw, 30px);
+  --fs-lead: 20px;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --lh-tight: 1.12;
+  --lh-body: 1.68;
+  --r-1: 2px;
+  --r-card: 3px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-serif); font-size: var(--fs-body); line-height: var(--lh-body);
+  font-feature-settings: "ss01", "onum" on, "liga" on, "kern" on;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(139, 164, 176, 0.30); color: var(--fg); }
+
+/* Skip link: the primary button (orange fill, page-colored text). */
+.skip {
+  position: absolute; left: 16px; top: -64px; z-index: 10;
+  background: var(--d-orange); color: var(--bg); padding: 8px 14px; border-radius: 0;
+  font: 500 var(--fs-small)/1.4 var(--f-serif); text-decoration: none;
+}
+.skip:focus { top: 8px; }
+.skip:hover { background: var(--d-red); color: var(--bg); }
+
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+/* The header and footer rules span the text column, not the side gutters. */
+header.site, footer.site { width: calc(100% - 32px); max-width: calc(46rem - 32px); padding-left: 0; padding-right: 0; }
+
+/* ---- navbar: site title, then the pages; 1px rule under the bar */
+header.site {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 26px;
+  min-height: 64px; padding-top: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.brand {
+  font-family: var(--f-display); font-weight: 500; font-size: 16px; letter-spacing: -0.005em;
+  color: var(--d-old-white); text-decoration: none;
+}
+.brand:hover { color: var(--d-old-white); text-decoration: underline; text-decoration-color: var(--d-ink-6); }
+nav.site ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 22px; }
+nav.site li { margin: 0; }
+nav.site a {
+  font-family: var(--f-display); font-size: 14px; color: var(--fg-dim); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+nav.site a:hover { color: var(--fg); }
+nav.site a[aria-current="page"] { color: var(--d-orange); font-style: italic; }
+
+/* ---- type */
+main { padding-top: 8px; padding-bottom: 56px; }
+h1 {
+  font-family: var(--f-display); font-size: var(--fs-h1); font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  letter-spacing: -0.015em; line-height: var(--lh-tight); color: var(--fg);
+  margin: 2rem 0 0.9rem;
+}
+h2 {
+  font-family: var(--f-display); font-size: var(--fs-h2); font-weight: 500;
+  letter-spacing: -0.01em; line-height: var(--lh-tight); color: var(--fg);
+  margin: 2.6rem 0 0.7rem; padding-top: 1.1rem; border-top: 1px solid var(--rule);
+}
+h3 {
+  font-family: var(--f-serif); font-size: 18px; font-weight: 600; color: var(--d-aqua);
+  letter-spacing: 0.01em; line-height: var(--lh-tight); margin: 1.8rem 0 0.5rem;
+}
+p, ul, ol, table, pre, figure, .note { margin: 0.85rem 0; }
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.3rem 0; }
+li::marker { color: var(--fg-faint); }
+em { color: var(--d-old-white); font-style: italic; }
+strong { color: var(--fg); font-weight: 700; }
+a {
+  color: var(--d-blue); text-decoration: underline; text-decoration-color: rgba(139, 164, 176, 0.35);
+  text-decoration-thickness: 1px; text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease), text-decoration-color var(--dur-fast) var(--ease);
+}
+a:hover { color: var(--d-aqua); text-decoration-color: var(--d-aqua); }
+a:focus-visible, button:focus-visible, nav.site a:focus-visible, .table-wrap:focus-visible, pre:focus-visible {
+  outline: 2px solid var(--d-orange); outline-offset: 3px; border-radius: 0;
+}
+.lead { font-size: var(--fs-lead); line-height: 1.55; color: var(--fg-dim); }
+
+/* ---- code */
+code, pre, kbd { font-family: var(--f-mono); font-size: 0.93em; font-variant-ligatures: none; }
+code {
+  color: var(--d-yellow); background: rgba(196, 178, 138, 0.08); padding: 0.08em 0.38em;
+  border: 1px solid rgba(196, 178, 138, 0.18); border-radius: var(--r-1);
+  overflow-wrap: anywhere;
+}
+kbd {
+  color: var(--fg); background: var(--bg-raised); border: 1px solid var(--rule);
+  border-bottom: 2px solid var(--d-ink-6);
+  padding: 0.02em 0.4em; border-radius: var(--r-1); font-size: 0.84em; white-space: nowrap;
+}
+/* Code cell: raised fill, 1px rule border, 2px orange left rule. It scrolls (tabindex on each <pre>). */
+pre {
+  background: var(--bg-raised); color: var(--fg); border: 1px solid var(--rule); border-left: 2px solid var(--d-orange);
+  padding: 12px 16px; font-size: 12.5px; line-height: 1.6; border-radius: 0; overflow: auto;
+}
+pre code { color: inherit; background: none; border: 0; padding: 0; font-size: inherit; overflow-wrap: normal; }
+
+/* ---- the install commands: a code cell with a Copy button (shown by assets/copy.js; hidden without it) */
+.cmd-label { margin: 1.1rem 0 0.4rem; color: var(--fg-dim); font-size: var(--fs-small); }
+.facts { color: var(--fg-dim); font-size: var(--fs-small); }
+.cell {
+  display: flex; align-items: stretch; margin: 0 0 0.85rem;
+  background: var(--bg-raised); border: 1px solid var(--rule); border-left: 2px solid var(--d-orange);
+}
+.cell pre { flex: 1 1 auto; min-width: 0; margin: 0; border: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cell pre code { overflow-wrap: anywhere; }
+.copy {
+  flex: none; padding: 0 1rem; border: 0; border-left: 1px solid var(--rule); border-radius: 0;
+  background: transparent; color: var(--fg); font: 12px/1.4 var(--f-mono); cursor: pointer;
+  transition: color var(--dur-fast) var(--ease);
+}
+.copy[hidden] { display: none; }
+.copy:hover { color: var(--d-orange); }
+.copy:focus-visible { outline-offset: -3px; }
+
+/* ---- folded sections: a quiet row, the summary in the serif at h3 size, a chevron that turns when open */
+details.fold { border-top: 1px solid var(--rule); }
+details.fold:last-of-type { border-bottom: 1px solid var(--rule); }
+details.fold > summary {
+  display: flex; align-items: center; gap: 10px; padding: 14px 0; cursor: pointer; list-style: none;
+  font-family: var(--f-serif); font-size: 18px; font-weight: 600; color: var(--fg); line-height: var(--lh-tight);
+}
+details.fold > summary::-webkit-details-marker { display: none; }
+details.fold > summary::before {
+  content: ""; flex: none; width: 7px; height: 7px; margin: 0 4px 0 2px;
+  border-right: 1.5px solid var(--fg-faint); border-bottom: 1.5px solid var(--fg-faint);
+  transform: rotate(-45deg); transition: transform var(--dur-fast) var(--ease);
+}
+details.fold[open] > summary::before { transform: rotate(45deg); }
+details.fold > summary:hover { color: var(--d-old-white); }
+details.fold > summary:focus-visible { outline: 2px solid var(--d-orange); outline-offset: 3px; }
+details.fold > :not(summary) { margin-left: 24px; }
+details.fold > :last-child { margin-bottom: 1.2rem; }
+details.fold h3 { margin-top: 1.2rem; }
+.folds { margin-top: 2rem; }
+
+/* ---- figure */
+figure { margin: 1.6rem 0; }
+figure img { max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 0; display: block; }
+figcaption { color: var(--fg-faint); font-size: var(--fs-small); font-style: italic; margin-top: 8px; }
+
+/* ---- tables */
+.table-wrap { overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.55; }
+th, td { text-align: left; vertical-align: top; padding: 8px 14px 8px 0; border-bottom: 1px solid var(--rule); }
+th {
+  color: var(--fg-faint); white-space: nowrap; border-bottom-color: var(--d-ink-6);
+  font: 500 10.5px/1.5 var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase;
+}
+td:first-child code, th code { white-space: nowrap; overflow-wrap: normal; }
+
+/* ---- the signature card: raised fill, 1px rule border, 2px orange left rule */
+.note {
+  background: var(--bg-raised); border: 1px solid var(--rule); border-left: 2px solid var(--d-orange);
+  padding: 12px 18px; border-radius: var(--r-card);
+}
+.note.warn { border-left-color: var(--d-yellow); }
+.note > :first-child { margin-top: 0; }
+.note > :last-child { margin-bottom: 0; }
+.cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); list-style: none; padding: 0; }
+.cards li {
+  background: var(--bg-raised); border: 1px solid var(--rule); border-left: 2px solid var(--d-orange);
+  border-radius: var(--r-card); padding: 12px 16px 14px; margin: 0;
+  transition: border-left-color var(--dur) var(--ease);
+}
+.cards li:hover { border-left-color: var(--d-yellow); }
+.cards a { font-family: var(--f-display); font-weight: 500; font-size: 18px; }
+.cards p { margin: 0.25rem 0 0; color: var(--fg-dim); font-size: 15px; line-height: 1.55; }
+
+/* ---- footer */
+footer.site { padding-top: 18px; padding-bottom: 40px; border-top: 1px solid var(--rule); color: var(--fg-dim); font-size: var(--fs-small); }
+footer.site p { margin: 0.5rem 0; }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .lead { font-size: 18px; }
+  nav.site ul { gap: 4px 18px; }
+  /* The first column may wrap on a phone so the tables do not need a sideways scroll. */
+  th { white-space: normal; }
+  td:first-child code, th code { white-space: normal; overflow-wrap: anywhere; }
+  .cell { flex-direction: column; }
+  .copy { border-left: 0; border-top: 1px solid var(--rule); padding: 0.5rem 1rem; text-align: left; }
+  details.fold > :not(summary) { margin-left: 0; }
+  pre.prose { white-space: pre-wrap; overflow-wrap: anywhere; }
+  pre.prose code { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+@media (forced-colors: active) {
+  kbd, .note, .cards li, pre { border: 1px solid CanvasText; }
+  nav.site a[aria-current="page"] { text-decoration: underline; }
+}

@@ -1,0 +1,12 @@
+# Actions only, on purpose: the repository has no npm, pip or other dependencies (package.json lists none).
+# Do not add an npm block; it would pull a manifest that must stay dependency-free into automated updates.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    # Pull request titles must be Conventional Commits (.github/workflows/pr-title.yml): "ci(deps): bump ..."
+    commit-message:
+      prefix: ci
+      include: scope

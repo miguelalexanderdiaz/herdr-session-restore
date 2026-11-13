@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Configuration - session-restore for Herdr</title>
+<meta name="description" content="Agents and resume commands, the allowlist, how long saves are kept, and the files it writes.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+<a class="brand" href="index.html">session-restore <span aria-hidden="true">&middot;</span> a Herdr mod</a>
+<nav class="site" aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="install.html">Install</a></li><li><a href="usage.html">Usage</a></li><li><a href="configuration.html" aria-current="page">Configuration</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></nav>
+</header>
+<main id="main">
+
+<h1>Configuration</h1>
+
+<h2 id="agents">Agents</h2>
+<p>An agent is resumed when two things are known: its resume command and its conversation id. These commands come from Herdr's own integrations:</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead><tr><th scope="col">Agent</th><th scope="col">Resume command</th></tr></thead>
+<tbody>
+<tr><td>Claude Code</td><td><code>claude --resume &lt;id&gt;</code></td></tr>
+<tr><td>Codex</td><td><code>codex resume &lt;id&gt;</code></td></tr>
+<tr><td>Copilot CLI</td><td><code>copilot --resume=&lt;id&gt;</code></td></tr>
+<tr><td>OpenCode, Kimi, Kilo</td><td><code>&lt;agent&gt; --session &lt;id&gt;</code></td></tr>
+<tr><td>Cursor Agent</td><td><code>cursor-agent --resume &lt;id&gt;</code></td></tr>
+<tr><td>Grok, Hermes, Qoder, Droid, Devin, Qwen</td><td><code>&lt;agent&gt; --resume &lt;id&gt;</code></td></tr>
+<tr><td>Antigravity, Letta</td><td><code>&lt;agent&gt; --conversation &lt;id&gt;</code></td></tr>
+<tr><td>OMP</td><td><code>omp --resume=&lt;id&gt;</code></td></tr>
+<tr><td>MastraCode</td><td><code>mastracode --thread &lt;id&gt;</code></td></tr>
+</tbody></table></div>
+<p>Others (Pi, Gemini, Amp, ...) are listed in the notification and stay a shell. The id comes from Claude Code's own records, or from the terminal label <code>session-restore.session</code> that <code>hooks/session-restore-hook.sh</code> sets for any agent.</p>
+
+<h2 id="allowlist">Programs that come back</h2>
+<p><code>nvim vim vi lazygit less htop btop yazi</code>, with their arguments, in their folder. Anything else is listed and left alone: rerunning a command blindly (<code>rm</code>, <code>git push</code>, a dev server) is how restore tools do damage.</p>
+
+<h2 id="values">Values in the code</h2>
+<div class="table-wrap" tabindex="0"><table>
+<thead><tr><th scope="col">Name</th><th scope="col">Value</th><th scope="col">What it does</th></tr></thead>
+<tbody>
+<tr><td><code>HOME</code></td><td><code>mods/session-restore</code></td><td>The folder name; the one place it is written.</td></tr>
+<tr><td><code>REV</code></td><td><code>session-restore.rev</code></td><td>Shared value the saver bumps so an open History reloads.</td></tr>
+<tr><td><code>SAVE_EVERY_MS</code></td><td>60000</td><td>How often the state is saved (kept only when it changed).</td></tr>
+<tr><td><code>KEEP_ALL_HOURS</code></td><td>48</td><td>Every distinct save from these last hours is kept.</td></tr>
+<tr><td><code>KEEP_DAYS</code></td><td>30</td><td>Then the newest save of each day, for these days.</td></tr>
+<tr><td><code>KEEP_MIN</code></td><td>10</td><td>The newest saves always kept, and pinned ones.</td></tr>
+</tbody></table></div>
+
+<h2 id="files">Files</h2>
+<ul>
+<li><code>&lt;Herdr home&gt;/session-restore/snap-&lt;time&gt;.json</code>: the saves, a few KB each.</li>
+<li><code>index.json</code> (the timeline), <code>pins.json</code> (pinned saves), <code>state.json</code> (the restart already handled).</li>
+</ul>
+
+<h2 id="keys">Keys</h2>
+<p><code>keys.json</code> binds <code>ctrl-shift-o</code> to <code>mod.open:session-restore</code>. Bind another key to that action if you prefer.</p>
+
+</main>
+<footer class="site">
+<p>Apache-2.0. <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore">Source on GitHub</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/AGENTS.md">Notes for AI agents</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/CHANGELOG.md">Changes</a></p>
+<p>This site is plain HTML and CSS, with one small script of its own for the Copy buttons. It loads nothing from other sites.</p>
+</footer>
+<script src="assets/copy.js"></script>
+</body>
+</html>

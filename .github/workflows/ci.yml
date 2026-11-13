@@ -1,0 +1,73 @@
+name: ci
+
+# This file is the CI definition of the repository. It lives in scripts/ because the
+# automation token used while the repository was prepared has no `workflow` scope, so
+# GitHub refuses any push that touches .github/workflows/. It does NOTHING until the
+# owner installs it (step 0 of .github/PUBLISH-CHECKLIST.md):
+#   copy it to .github/workflows/ci.yml, byte for byte, and push with a login that has
+#   the `workflow` scope (gh auth refresh -s workflow), or add it in the GitHub web UI.
+# `node scripts/validate.mjs` lints this file and, once installed, checks that both
+# copies are identical.
+#
+# What it runs needs no Herdr install: structure and contract, privacy (files and
+# history), documentation links, the script tests and the unit tests of the pure code,
+# on Linux, Windows and macOS, on Node 22 and 24. `herdr-app check` is the desktop
+# app's own binary and cannot run on a hosted runner: `node scripts/check-local.mjs`
+# runs it on your machine.
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: checks (${{ matrix.os }}, node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [22, 24]
+    env:
+      CI: "true"
+      # Extra words the privacy scan must refuse (a username, an employer). It is a repository
+      # secret, so it is empty on forks and the scan then runs its built-in rules only.
+      PRIVACY_EXTRA: ${{ secrets.PRIVACY_EXTRA }}
+      # On pull requests the author e-mails of other people's commits are theirs and already public
+      # in git, so only the owner-controlled push to main runs the full author/committer check.
+      # Added lines and commit messages are scanned in both modes.
+      PRIVACY_AUTHORS: ${{ github.event_name == 'pull_request' && 'skip' || 'all' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # the privacy scan reads the whole history
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Platform
+        shell: bash
+        run: |
+          echo "platform: $RUNNER_OS, node $(node --version), autocrlf: $(git config core.autocrlf || echo unset)"
+      - name: Notice when the private word list is missing
+        if: github.event_name == 'push' && env.PRIVACY_EXTRA == ''
+        shell: bash
+        run: echo "::notice::PRIVACY_EXTRA is empty, so the privacy scan ran its built-in rules only (see .github/PUBLISH-CHECKLIST.md)"
+      - name: Structure and contract
+        run: node scripts/validate.mjs
+      - name: Privacy scan (files and history)
+        run: node scripts/privacy-scan.mjs
+      - name: Documentation links
+        run: node scripts/check-docs.mjs
+      - name: Tests (the pure code, the mod harness and the checks themselves)
+        run: npm test

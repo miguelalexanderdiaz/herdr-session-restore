@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="44" viewBox="0 0 196 44" role="img" aria-labelledby="t">
+  <title id="t">Read the documentation</title>
+  <rect width="196" height="44" fill="#B6927B"/>
+  <rect y="43" width="196" height="1" fill="#0D0C0C" fill-opacity="0.6"/>
+  <text x="20" y="27" fill="#181616" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="700" letter-spacing="1.6" textLength="128" lengthAdjust="spacingAndGlyphs">READ THE DOCS</text>
+  <path d="M164 27 L173 18 M166.5 18 H173 V24.5" fill="none" stroke="#181616" stroke-width="2" stroke-linecap="square"/>
+</svg>

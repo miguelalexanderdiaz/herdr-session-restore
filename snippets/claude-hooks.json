@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "SessionStart": [{ "matcher": "*", "hooks": [{ "type": "command", "command": "sh ~/.config/herdr-app/session-restore-hook.sh", "timeout": 10 }] }],
+    "SessionEnd": [{ "matcher": "*", "hooks": [{ "type": "command", "command": "sh ~/.config/herdr-app/session-restore-hook.sh", "timeout": 10 }] }]
+  }
+}

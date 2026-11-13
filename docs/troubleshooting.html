@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Troubleshooting - session-restore for Herdr</title>
+<meta name="description" content="What to check when nothing is saved, a program is not restarted, or an agent does not resume.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+<a class="brand" href="index.html">session-restore <span aria-hidden="true">&middot;</span> a Herdr mod</a>
+<nav class="site" aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="install.html">Install</a></li><li><a href="usage.html">Usage</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="troubleshooting.html" aria-current="page">Troubleshooting</a></li></ul></nav>
+</header>
+<main id="main">
+
+<h1>Troubleshooting</h1>
+<h2 id="no-saves">The History says "No saves yet"</h2>
+<p>The saver runs only in layouts that have its floating entry (<a href="install.html#layouts">Install</a>). Check the layout you have open, then wait a minute.</p>
+<h2 id="not-restarted">A program did not come back after a reboot</h2>
+<ul>
+<li>It is not on the allowlist; the notification lists it. Run it by hand.</li>
+<li>It started less than a minute before the machine went down, so no save had it yet.</li>
+<li>Herdr was closed when the machine went down: saves only happen while the window is open.</li>
+</ul>
+<h2 id="agent">An agent came back as a shell</h2>
+<p>Its conversation id was not known (no hook for that agent), or Herdr's integrations list no resume command for it. Open the pane's details in the History: it says which.</p>
+<h2 id="split">A restored tab has a different split</h2>
+<p>Herdr does not tell mods a tab's split shape, so a rebuilt tab stacks its panes. Tabs that were never closed keep their layout.</p>
+<h2 id="unverified">Not verified yet</h2>
+<ul>
+<li>Linux and Windows paths: the mod ran on macOS only.</li>
+<li>Agents other than Claude Code in a live window: their resume commands come from Herdr's documentation.</li>
+</ul>
+
+</main>
+<footer class="site">
+<p>Apache-2.0. <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore">Source on GitHub</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/AGENTS.md">Notes for AI agents</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/CHANGELOG.md">Changes</a></p>
+<p>This site is plain HTML and CSS, with one small script of its own for the Copy buttons. It loads nothing from other sites.</p>
+</footer>
+<script src="assets/copy.js"></script>
+</body>
+</html>

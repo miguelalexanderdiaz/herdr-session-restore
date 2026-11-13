@@ -1,0 +1,3 @@
+{
+  "global": { "ctrl-shift-o": "mod.open:session-restore" }
+}

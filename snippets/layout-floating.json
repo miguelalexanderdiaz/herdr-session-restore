@@ -1,0 +1,5 @@
+{
+  "floating": [
+    { "id": "session-restore-bg", "content": { "mod": "session-restore", "props": { "role": "background" } }, "edge": "bottom", "align": "end" }
+  ]
+}

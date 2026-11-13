@@ -1,0 +1,27 @@
+session-restore for Herdr (herdr-session-restore)
+Copyright 2026, the herdr-session-restore authors (the holder is named in LICENSE)
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Herdr is a product of its own authors and is not affiliated with this project.
+This mod only uses Herdr's public mod API (the "herdr" and "gpui-kit" modules a
+mod can import) and is not a copy of any Herdr file.
+
+Third-party code: none is bundled.
+Third-party assets: the documentation site (docs/, not part of the mod) bundles
+three fonts, each under the SIL Open Font License, Version 1.1, whose full text
+and copyright line ship next to the files in docs/assets/fonts/:
+  - Fraunces (fraunces-latin-full-normal.woff2), Copyright 2018 The Fraunces
+    Project Authors; license in Fraunces-OFL.txt.
+  - Source Serif 4 (source-serif-4-latin-wght-normal.woff2 and
+    source-serif-4-latin-wght-italic.woff2), Copyright 2014 - 2023 Adobe, with
+    Reserved Font Name 'Source'; license in SourceSerif4-OFL.txt.
+  - JetBrains Mono (jetbrains-mono-latin-wght-normal.woff2), Copyright 2020 The
+    JetBrains Mono Project Authors; license in JetBrainsMono-OFL.txt.
+The woff2 files are the latin variable builds published by the Fontsource
+project (@fontsource-variable packages, version 5.3; all axes for Fraunces,
+the weight axis for the other two), copied unchanged.
+Otherwise none bundled. The icon in mods/session-restore (clock.svg) and the
+preview illustration (preview.png, drawn from scripts/preview/preview.svg) were
+made for this project. The resume commands are taken from Herdr's public
+documentation of its agent integrations.

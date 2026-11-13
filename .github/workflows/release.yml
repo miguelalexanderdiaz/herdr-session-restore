@@ -1,0 +1,41 @@
+# Releases with release-please (https://github.com/googleapis/release-please). Every push to main updates one
+# release pull request: the next version, worked out from the Conventional Commit titles of the pull requests
+# merged since the last release, and their lines added to CHANGELOG.md. Merging that pull request tags vX.Y.Z
+# and publishes the GitHub release. Configuration: release-please-config.json, .release-please-manifest.json.
+name: release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write       # the release commit, tag and GitHub release
+  pull-requests: write  # the release pull request
+  issues: write         # its "autorelease" labels
+  actions: write        # start the checks on the release pull request (below)
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Pinned to a full commit; the tag after # is the release the commit belongs to.
+      - id: release
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+
+      # A pull request this workflow's token opens or updates starts no workflows, so main's required checks
+      # would never report on it. workflow_dispatch is the exception: start them on the release branch.
+      - name: Run the checks on the release pull request
+        if: steps.release.outputs.prs_created == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          BRANCH: ${{ fromJSON(steps.release.outputs.pr).headBranchName }}
+        run: |
+          gh workflow run ci.yml --ref "$BRANCH"
+          gh workflow run pr-title.yml --ref "$BRANCH"

@@ -1,0 +1,36 @@
+# Pull requests are squash-merged and the pull request title becomes the commit on main, which release-please
+# reads to pick the next version and write CHANGELOG.md. So the title must be a Conventional Commit:
+#   feat: ...   a new feature (minor release)          fix: ...   a bug fix (patch release)
+#   docs: / perf: / revert: ...  listed in the changelog
+#   ci: / test: / refactor: / build: / chore: / style: ...  left out of it
+# An optional (scope) follows the type, and a ! before the colon marks a breaking change.
+name: pr-title
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  title:
+    name: conventional title
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: The title is a Conventional Commit
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "Started by the release workflow on its own pull request, whose title release-please writes."
+            exit 0
+          fi
+          types='feat|fix|docs|perf|revert|ci|test|refactor|build|chore|style'
+          if printf '%s\n' "$TITLE" | grep -Eq "^($types)(\([a-z0-9._/-]+\))?!?: [^ ]"; then
+            echo "ok: $TITLE"
+          else
+            echo "::error title=Pull request title::\"$TITLE\" is not a Conventional Commit. Write it as 'type: summary' or 'type(scope): summary', type one of: ${types//|/, }. It becomes the commit on main and the changelog line."
+            exit 1
+          fi

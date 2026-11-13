@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Install - session-restore for Herdr</title>
+<meta name="description" content="Install session-restore with one command or by hand, add the saver to your layouts, and wire agents' hooks.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+<a class="brand" href="index.html">session-restore <span aria-hidden="true">&middot;</span> a Herdr mod</a>
+<nav class="site" aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="install.html" aria-current="page">Install</a></li><li><a href="usage.html">Usage</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></nav>
+</header>
+<main id="main">
+
+<h1>Install</h1>
+
+<h2 id="one-command">One command</h2>
+<p class="cmd-label">macOS and Linux</p>
+<div class="cell"><pre id="cmd-sh" tabindex="0"><code>curl -fsSL https://raw.githubusercontent.com/miguelalexanderdiaz/herdr-session-restore/main/install/install.sh | sh</code></pre><button class="copy" type="button" data-copy="cmd-sh" aria-label="Copy the command">Copy</button></div>
+<p class="cmd-label">Windows (PowerShell)</p>
+<div class="cell"><pre id="cmd-ps" tabindex="0"><code>irm https://raw.githubusercontent.com/miguelalexanderdiaz/herdr-session-restore/main/install/install.ps1 | iex</code></pre><button class="copy" type="button" data-copy="cmd-ps" aria-label="Copy the command">Copy</button></div>
+<p>It says what the mod reaches, asks, copies <code>mods/session-restore/</code> into Herdr's home (an older copy is backed up first), merges <code>keys.json</code> (asking before it replaces a key you use) and runs <code>herdr-app check</code>.</p>
+
+<h2 id="layouts">Add the saver to your layouts</h2>
+<p>Herdr only runs a mod where a layout places it. So add this entry to the root node's <code>"floating"</code> list in each <code>layouts/&lt;name&gt;.json</code> you use (it draws nothing):</p>
+<div class="cell"><pre id="cmd-float" tabindex="0"><code>{ &quot;id&quot;: &quot;session-restore-bg&quot;, &quot;content&quot;: { &quot;mod&quot;: &quot;session-restore&quot;, &quot;props&quot;: { &quot;role&quot;: &quot;background&quot; } }, &quot;edge&quot;: &quot;bottom&quot;, &quot;align&quot;: &quot;end&quot; }</code></pre><button class="copy" type="button" data-copy="cmd-float" aria-label="Copy the command">Copy</button></div>
+<p>Herdr's own layouts (<code>main</code>, <code>terminals</code>) are read-only; clone one first:</p>
+<div class="cell"><pre id="cmd-clone" tabindex="0"><code>herdr-app do layout.clone '{&quot;name&quot;:&quot;main&quot;,&quot;as&quot;:&quot;my-main&quot;}'</code></pre><button class="copy" type="button" data-copy="cmd-clone" aria-label="Copy the command">Copy</button></div>
+<p>Saves then appear in <code>&lt;Herdr home&gt;/session-restore/</code> within a minute.</p>
+<p>Optional: if a layout has a side panel stack, add <code>{ "id": "history", "type": "block", "content": { "mod": "session-restore" } }</code> as one of its children to keep the History there too.</p>
+
+<h2 id="agents">Agents' conversation ids</h2>
+<p>Claude Code needs nothing: it keeps a record per running process. Any other agent is resumed once its session-start hook runs <code>hooks/session-restore-hook.sh</code>, which labels the Herdr terminal with the hook's <code>session_id</code>. Copy it next to your Herdr home and point the agent's hook at it; <code>snippets/claude-hooks.json</code> shows the shape for Claude Code (a backup there).</p>
+
+<h2 id="screen">Old screen text (optional)</h2>
+<p>Herdr can show each terminal's last screen above the new shell after a reboot. Add this line to <code>~/.config/herdr-core/config.toml</code>:</p>
+<div class="cell"><pre id="cmd-screen" tabindex="0"><code>restore_screen = true</code></pre><button class="copy" type="button" data-copy="cmd-screen" aria-label="Copy the command">Copy</button></div>
+
+<h2 id="by-hand">By hand</h2>
+<ol>
+<li>Copy <code>mods/session-restore/</code> into <code>&lt;Herdr home&gt;/mods/</code>.</li>
+<li>Merge <code>keys.json</code> into yours.</li>
+<li>Add the saver to your layouts (above).</li>
+<li>Run <code>herdr-app check &lt;Herdr home&gt;/mods/session-restore</code>.</li>
+</ol>
+
+<h2 id="uninstall">Uninstall</h2>
+<div class="cell"><pre id="cmd-un" tabindex="0"><code>curl -fsSL https://raw.githubusercontent.com/miguelalexanderdiaz/herdr-session-restore/main/install/install.sh | sh -s -- --uninstall</code></pre><button class="copy" type="button" data-copy="cmd-un" aria-label="Copy the command">Copy</button></div>
+<p>Then remove the floating entry from your layouts, and delete <code>&lt;Herdr home&gt;/session-restore/</code> if you no longer want the saves.</p>
+
+</main>
+<footer class="site">
+<p>Apache-2.0. <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore">Source on GitHub</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/AGENTS.md">Notes for AI agents</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/CHANGELOG.md">Changes</a></p>
+<p>This site is plain HTML and CSS, with one small script of its own for the Copy buttons. It loads nothing from other sites.</p>
+</footer>
+<script src="assets/copy.js"></script>
+</body>
+</html>

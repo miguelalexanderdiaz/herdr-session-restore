@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Overview - session-restore for Herdr</title>
+<meta name="description" content="A Herdr mod that saves what every pane runs, restores it after a reboot, and lets you go back to an earlier save.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+<a class="brand" href="index.html">session-restore <span aria-hidden="true">&middot;</span> a Herdr mod</a>
+<nav class="site" aria-label="Documentation"><ul><li><a href="index.html" aria-current="page">Overview</a></li><li><a href="install.html">Install</a></li><li><a href="usage.html">Usage</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></nav>
+</header>
+<main id="main">
+
+<h1>session-restore</h1>
+<p class="lead">A History for Herdr. It saves what every pane runs, brings it back after a reboot or a crash, and lets you go back to an earlier save. Like tmux-resurrect and tmux-continuum, with a timeline.</p>
+
+<figure>
+<img src="assets/preview.png" alt="Illustration of the History window: the date of the chosen save, a Restore button, a search box, an activity strip with restart marks over a slider, then cards for two spaces listing their tabs and panes." width="1100" height="705">
+<figcaption>An illustration drawn with made-up data, not a screenshot.</figcaption>
+</figure>
+
+<h2 id="what">What you get</h2>
+<ul>
+<li><strong>Saves</strong> of your spaces, tabs and panes, with each pane's folder and what it runs, once every 60 seconds. A save is only kept when something changed.</li>
+<li><strong>Back after a reboot.</strong> Herdr gives every tab a fresh shell; session-restore restarts what ran there: agent conversations, resumed by their id, and programs on a short allowlist.</li>
+<li><strong>A timeline.</strong> A slider over the saves, an activity strip, "before restart" jumps and a search box. Every space, tab and pane is compared with now; Restore adds back what is missing and never closes anything.</li>
+<li><strong>Any agent, any layout.</strong> Seventeen agents resume by id. The History opens as a popup in any layout.</li>
+</ul>
+
+<h2 id="quick-start">Quick start</h2>
+<p class="cmd-label">macOS and Linux</p>
+<div class="cell"><pre id="cmd-sh" tabindex="0"><code>curl -fsSL https://raw.githubusercontent.com/miguelalexanderdiaz/herdr-session-restore/main/install/install.sh | sh</code></pre><button class="copy" type="button" data-copy="cmd-sh" aria-label="Copy the command">Copy</button></div>
+<p class="cmd-label">Windows (PowerShell)</p>
+<div class="cell"><pre id="cmd-ps" tabindex="0"><code>irm https://raw.githubusercontent.com/miguelalexanderdiaz/herdr-session-restore/main/install/install.ps1 | iex</code></pre><button class="copy" type="button" data-copy="cmd-ps" aria-label="Copy the command">Copy</button></div>
+<p>It asks before writing anything. Then add the background saver to each layout you use (<a href="install.html#layouts">one line per layout</a>), and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> opens the History.</p>
+
+<h2 id="read-next">Read next</h2>
+<ul class="cards">
+<li><a href="install.html">Install</a><p>One command, by hand, the layout line, agents' hooks; uninstall.</p></li>
+<li><a href="usage.html">Usage</a><p>The window, the timeline, restoring, what comes back after a reboot.</p></li>
+<li><a href="configuration.html">Configuration</a><p>Agents and their resume commands, the allowlist, keeping saves, files.</p></li>
+<li><a href="troubleshooting.html">Troubleshooting</a><p>Nothing saved, nothing restarted, an agent that does not resume.</p></li>
+</ul>
+
+<h2 id="privacy">Privacy and permissions</h2>
+<ul>
+<li><strong>Network:</strong> none.</li>
+<li><strong>Runs:</strong> Herdr's <code>hc</code>: <code>hc get</code> to see what each pane runs, <code>hc server status</code> to tell a restart, and <code>hc send</code> to type a restart line into a pane that is a bare shell. And <code>herdr-app do</code>, only to recreate the tabs and spaces you choose to restore.</li>
+<li><strong>Reads:</strong> Claude Code's <code>~/.claude/sessions/&lt;pid&gt;.json</code> for conversation ids and names; <code>~/.claude/history.jsonl</code> only when you open a Claude pane's details, to show your last prompt.</li>
+<li><strong>Writes:</strong> only its saves, in <code>&lt;Herdr home&gt;/session-restore/</code>.</li>
+</ul>
+<p>Herdr does not sandbox mods, so this is a promise of this code, not a limit set by Herdr. <code>scripts/validate.mjs</code> checks it on every change.</p>
+
+</main>
+<footer class="site">
+<p>Apache-2.0. <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore">Source on GitHub</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/AGENTS.md">Notes for AI agents</a> &middot; <a href="https://github.com/miguelalexanderdiaz/herdr-session-restore/blob/main/CHANGELOG.md">Changes</a></p>
+<p>This site is plain HTML and CSS, with one small script of its own for the Copy buttons. It loads nothing from other sites.</p>
+</footer>
+<script src="assets/copy.js"></script>
+</body>
+</html>
