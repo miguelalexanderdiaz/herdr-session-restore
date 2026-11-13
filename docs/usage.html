@@ -21,8 +21,10 @@
 
 <h2 id="open">Open the History</h2>
 <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> opens it as a popup in any layout, and again closes it. In a layout with the History panel, it is also there.</p>
+<figure><img src="assets/fig-open.svg" width="1000" height="560" loading="lazy" alt="A Herdr window with two agent panes. The keys Ctrl, Shift and O appear, and the History drops down over the panes as a popup: the newest save, the same as now, with its timeline and a card for the web-app space."><figcaption>The popup opens over whatever layout you use. Illustration with invented data.</figcaption></figure>
 
 <h2 id="window">The window</h2>
+<figure><img src="assets/fig-window.svg" width="1020" height="700" loading="lazy" alt="The History window with six numbered parts, lit one after another: 1 the save's date and how it differs from now, 2 the Restore, Pin and Events buttons, 3 the search box, 4 the timeline with its activity strip and restart marks, 5 a card per space with its tabs and panes, 6 the marks beside panes."><figcaption>Each part lights up in turn. Illustration with invented data.</figcaption></figure>
 <ul>
 <li><strong>Header:</strong> the save's date and time, how long ago, its counts (tabs, each agent, programs) and how it differs from now: <code>+2 tabs  +1 space  1 to restart</code>.</li>
 <li><strong>Restore</strong>, <strong>Pin</strong> and <strong>Events</strong> sit right under it. Events lists what changed since the save before.</li>
@@ -31,11 +33,17 @@
 <li><strong>Tree:</strong> a card per space with its tabs and panes. A mark shows where a pane differs from now: <code>↻</code> can restart in place, <code>~</code> runs something else now, <code>+</code> was closed since. Click a pane for its folder, branch and, for an agent, its conversation.</li>
 </ul>
 
+<h3 id="timeline">Going back in time</h3>
+<p>Drag the slider, or press <kbd>←</kbd>, and the whole window shows that save: its date, its counts, and every pane compared with what runs now.</p>
+<figure><img src="assets/fig-timeline.svg" width="1000" height="700" loading="lazy" alt="A pointer drags the slider back in four steps. Now: nothing to restore. Two hours ago: nvim ran in a pane that is a shell now, so Restore 1. Yesterday, before a restart: the infra space was open, so Restore 4. Six days ago: fewer tabs, and two conversations that were different then."><figcaption>Now, 2 hours ago, yesterday before a restart, and last week. Illustration with invented data.</figcaption></figure>
+
 <h2 id="restore">Restore</h2>
 <p>Every pane that can restart and every closed tab has a tick box; untick what you don't want. Restore types a restart line into panes that are now a bare shell, and rebuilds closed tabs (and spaces) with their panes. It never closes or replaces what runs now.</p>
+<figure><img src="assets/fig-restore.svg" width="1100" height="600" loading="lazy" alt="On the left the History shows a save from yesterday with Restore 2. A pointer presses Restore. On the right, in Herdr, a bare shell in the editor tab gets the line cd ~/code/web-app/src &amp;&amp; nvim src/cart.ts typed into it and becomes nvim, the closed infra space appears in the list of spaces, and a notification says Restarted 1 pane, opened 1 space. The History then says same as now."><figcaption>One pane restarts in place and a closed space comes back. Illustration with invented data.</figcaption></figure>
 
 <h2 id="reboot">After a reboot or crash</h2>
 <p>When Herdr's terminal service has started again since the last save, session-restore takes the last save from before that start and restarts what ran in each pane that is now a bare shell: agents by their conversation id, and programs on the allowlist. Closed tabs are not rebuilt on their own; that is what the History is for. One notification says what came back, and lists any command it left alone.</p>
+<figure><img src="assets/fig-reboot.svg" width="1000" height="620" loading="lazy" alt="Five steps. Running: a Claude Code conversation, a Codex conversation, nvim and a dev server. Restart: the computer restarts. Bare shells: every pane is a shell in its old folder. Restarting: the lines cd ~/code/web-app/src &amp;&amp; claude --resume 7f3c2a, cd ~/code/web-app &amp;&amp; codex resume 019a3f and the nvim line are typed into their panes. Back: both conversations and nvim run again, the dev server stays a shell, and a notification says Restarted 3 panes, left alone: npm run dev."><figcaption>Agents come back by their conversation id; the dev server is left for you. Illustration with invented data.</figcaption></figure>
 
 </main>
 <footer class="site">

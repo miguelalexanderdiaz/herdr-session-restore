@@ -20,6 +20,11 @@ lets you go back to an earlier save. Like tmux-resurrect and tmux-continuum, wit
   search box, and every space, tab and pane compared with now. Restore adds back what is missing and
   never closes anything.
 
+![After a reboot, each pane's agent or program restarts where it ran (illustration with invented data)](docs/assets/fig-reboot.svg)
+
+[Usage](https://miguelalexanderdiaz.github.io/herdr-session-restore/usage.html) walks through the
+window, the timeline and Restore, with an animation for each.
+
 ## Install
 
 1. Run the installer. It says what the mod reaches and asks before writing anything.
